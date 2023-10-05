@@ -46,10 +46,26 @@ button {
 }
 
 .csCourses {
+  display: flex;
   margin-left: 50px;
+  align-items: center;
 }
 
 .courseList {
   margin-top: 20px;
   margin-left: 50px;
+}
+
+.filter-btn {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 40px;
+  width: 90px;
+  margin-left: 20px;
+  border: 2px solid purple;
+  background-color: rgb(214, 172, 235);
+  font-size: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
