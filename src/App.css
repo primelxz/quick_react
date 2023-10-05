@@ -40,3 +40,16 @@
 button {
   font-size: calc(10px + 2vmin);
 }
+
+.body {
+  margin: 50px;
+}
+
+.csCourses {
+  margin-left: 50px;
+}
+
+.courseList {
+  margin-top: 20px;
+  margin-left: 50px;
+}
