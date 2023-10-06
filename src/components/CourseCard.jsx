@@ -1,8 +1,8 @@
 import "./CourseCard.css";
 
-const CourseCard = ({course}) => {
+const CourseCard = ({course, selected, toggleSelected}) => {
     return (
-        <div className="course-card">
+        <div className={`course-card ${selected.includes(course) ? 'selected' : ''}`} onClick={() => toggleSelected(course)}>
             <div className="card-body">
                 <div className="course-term">
                     {course.term} CS {course.number}

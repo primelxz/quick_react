@@ -8,6 +8,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.course-card.selected {
+    background-color:rgb(251, 205, 255);
+  }
+
 .card-body {
     padding: 15px;
 }
