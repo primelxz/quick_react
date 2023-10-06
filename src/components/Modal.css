@@ -1,0 +1,56 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.modal-hdr {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.selected-courses li {
+    margin-bottom: 10px;
+}
+
+button {
+    border: none;
+    background-color: #f2f2f2;
+    padding: 10px 15px;
+    cursor: pointer;
+    float: right;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+.modal-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: auto;
+    margin-left: 20px;
+    border: 2px solid purple;
+    background-color: rgb(214, 172, 235);
+    font-size: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

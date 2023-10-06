@@ -59,7 +59,7 @@ button {
 .filter-btn {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 40px;
   width: 90px;
   margin-left: 20px;

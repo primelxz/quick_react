@@ -5,12 +5,15 @@ import './App.css';
 import Banner from './components/Banner';
 import CourseList from './components/CourseList';
 import Chooser from './components/Chooser';
+import Modal from './components/Modal';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useJsonQuery } from './utilities/fetch';
 
 const Main = () => {
   const [data, isLoading, error] = useJsonQuery('https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php');
   const [choice, setChoice] = useState(0);
+  const [selected, setSelected] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   if (error) return <h1>Error loading user data: {`${error}`}</h1>;
   if (isLoading) return <h1>Loading user data...</h1>;
@@ -19,14 +22,26 @@ const Main = () => {
   const choices = ['Fall', 'Spring', 'Winter'];
   const filteredCourses = Object.values(data.courses).filter(course => course.term === choices[choice]);
 
+  const toggleSelected = (item) => setSelected(
+    selected.includes(item)
+    ? selected.filter(x => x !== item)
+    : [...selected, item]
+  );
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
   return (
     <div className="body">
       <div className="csCourses">
         <Banner scheduleTitle={data.title} />
         <Chooser choice={choice} setChoice={setChoice} choices={choices}/>
+        <button className="modal-btn" onClick={toggleModal}>Selected Courses</button>
       </div>
       <div className="courseList">
-        <CourseList courses={filteredCourses} />
+        <CourseList courses={filteredCourses} selected={selected} toggleSelected={toggleSelected} />
+        {showModal && <Modal selectedCourses={selected} onClose={toggleModal} />}
       </div>
     </div>
   )
