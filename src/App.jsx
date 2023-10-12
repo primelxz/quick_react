@@ -8,6 +8,7 @@ import Chooser from './components/Chooser';
 import Modal from './components/Modal';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useJsonQuery } from './utilities/fetch';
+import { hasConflict } from './utilities/timeConflict';
 
 const Main = () => {
   const [data, isLoading, error] = useJsonQuery('https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php');
@@ -32,6 +33,11 @@ const Main = () => {
     setShowModal(!showModal);
   };
 
+  const selectable = (id) => {
+    const course = filteredCourses[id];
+    return selected.every(selectedId => !hasConflict(course, filteredCourses[selectedId]));
+  }
+
   return (
     <div className="body">
       <div className="csCourses">
@@ -40,7 +46,7 @@ const Main = () => {
         <button className="modal-btn" onClick={toggleModal}>Selected Courses</button>
       </div>
       <div className="courseList">
-        <CourseList courses={filteredCourses} selected={selected} toggleSelected={toggleSelected} />
+        <CourseList courses={filteredCourses} selected={selected} toggleSelected={toggleSelected} selectable={selectable} />
         {showModal && <Modal selectedCourses={selected} onClose={toggleModal} />}
       </div>
     </div>
