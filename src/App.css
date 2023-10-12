@@ -69,3 +69,7 @@ button {
   border-radius: 6px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.filter-btn:hover {
+  background-color: #b049cf;
+}

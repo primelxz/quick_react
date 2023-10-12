@@ -1,4 +1,6 @@
 .course-list {
+    margin-top: 20px;
+    margin-left: 50px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 30px;

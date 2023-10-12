@@ -29,7 +29,7 @@ const parseMeet = (course) => {
 }
 
 export const hasConflict = (courseA, courseB) => {
-    if (courseA.term !== courseB) {
+    if (courseA.term !== courseB.term) {
         return false;
     }
 

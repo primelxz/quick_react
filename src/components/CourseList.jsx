@@ -5,8 +5,9 @@ const CourseList = ({courses, selected, toggleSelected, selectable}) => {
     
     return (
         <div className="course-list">
-            { Object.entries(courses).map(([id, course]) => (
-                <CourseCard key={id} course={course} selected={selected} toggleSelected={toggleSelected} selectable={selectable} />
+            {/* {console.log(courses)} */}
+            { courses.map(([id, course]) => (
+                <CourseCard key={id} id={id} course={course} selected={selected} toggleSelected={toggleSelected} selectable={selectable} />
             ))}
         </div>
 )};
