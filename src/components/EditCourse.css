@@ -52,3 +52,8 @@
 .edit-field button:hover {
     background-color: #b049cf;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+}
