@@ -8,18 +8,17 @@ import EditCourse from './components/EditCourse';
 import Chooser from './components/Chooser';
 import Modal from './components/Modal';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useJsonQuery } from './utilities/fetch';
 import { hasConflict } from './utilities/timeConflict';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useDbData } from './utilities/firebase';
 
 const Main = () => {
-  const [data, isLoading, error] = useJsonQuery('https://courses.cs.northwestern.edu/394/guides/data/cs-courses.php');
+  const [data, error] = useDbData('/');
   const [choice, setChoice] = useState(0);
   const [selected, setSelected] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   if (error) return <h1>Error loading user data: {`${error}`}</h1>;
-  if (isLoading) return <h1>Loading user data...</h1>;
   if (!data) return <h1>No user data found</h1>;
 
   const choices = ['Fall', 'Spring', 'Winter'];
